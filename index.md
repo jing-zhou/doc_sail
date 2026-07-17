@@ -1,6 +1,6 @@
-==========================================
+=====================================
 APPLICATION MASTER SYSTEM INDEX
-==========================================
+=====================================
 
 Welcome to the central guide node. Select an execution branch link below:
 

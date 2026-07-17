@@ -1,0 +1,38 @@
+1. Start pebble-challtestsrv
+Launch the mock server first so it is ready to handle DNS queries and management requests. It defaults to port 8053 for DNS and 8055 for its management API. 
+
+pebble-challtestsrv \
+  -tlsalpn01 "" \
+  -http01 "" \
+  -https01 "" \
+  -management ":8055" \
+  -dns01 ":8053" \
+  -defaultIPv4 "127.0.0.1"
+
+======================================================
+
+2. Start Pebble
+Start the main ACME server and explicitly tell it to use the mock server for all DNS lookups
+
+pebble -config ./test/config/pebble-config.json -dnsserver 127.0.0.1:8053
+
+===========================================================
+3. Configure the "Route Table" (DNS A-Record)
+Pebble doesn't have a "route table" in the traditional networking sense; it relies on DNS resolution. You must tell the mock server to resolve example.test to your client's IP. Use a POST request to the management API.
+
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"host":"example.test.", "ip":"127.0.0.1"}' \
+     http://localhost:8055/add-a
+
+==========================================================
+
+4. (Optional) Verify the Entry
+Confirm the mock server is correctly "routing" the domain by querying its current DNS set:
+
+dig @127.0.0.1 -p 8053 example.test
+
+===============================================
+5. Download pebble CA root:
+
+curl -vk --noproxy 127.0.0.1 --tlsv1.2 --http1.1 https://127.0.0.1:15000/roots/0  -o pebble-trust.pem
+curl -vk --noproxy 127.0.0.1 --tlsv1.2 --http1.1 https://127.0.0.1:15000/intermediates/0  -o pebble-trust-intermediate.pem

@@ -1,0 +1,67 @@
+
+// add an UUID4 to the billingId field for the imlol user in the illiad_proxy database
+docker exec -it illiad-mongo mongosh illiad_proxy --eval 'db.users.updateOne({ username: "imlol" }, { $set: { billingId: UUID() } })'
+
+// find user "imlol" in the illiad_proxy database and print the result
+docker exec -it illiad-mongo mongosh illiad_proxy --eval 'db.users.findOne({ username: "imlol" })'
+
+// add a record in 'billing'
+
+docker ps
+
+//-------------------------create ----------------------------------------
+
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" << 'EOF'
+db.billing.insertOne({
+  billingId: UUID("61c53f4b-374c-4ecf-8c54-6e5058c7fed3"),
+  plan: "TIME-A",
+  quota: NumberLong("10737418240"),
+  consumed: NumberLong("0"),
+  quotaRenew: ISODate("1970-01-01T00:00:00Z"),
+  periodStart: new Date(),
+  periodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+  periodExtend: ISODate("1970-01-01T00:00:00Z"),
+  windowStart: new Date(),
+  windowSum: NumberLong("0"),
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  lastUsedAt: ISODate("1970-01-01T00:00:00Z")
+});
+EOF
+
+
+//-----------------query -------------------------
+
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" --eval 'db.billing.find({ billingId: UUID("61c53f4b-374c-4ecf-8c54-6e5058c7fed3") }).pretty()'
+
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" --eval 'db.billing.find().pretty()'
+
+// --------------------------remove-------------------
+
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" --eval 'db.billing.deleteOne({ billingId: UUID("61c53f4b-374c-4ecf-8c54-6e5058c7fed3") })'
+
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" --eval 'db.users.findOne({ username: "valquiria" })'
+docker exec -i 66a88f107740 mongosh "mongodb://localhost:27017/illiad_proxy" --eval 'db.users.deleteOne({ username: "valquiria" })'
+
+
+========================
+
+// 1. Optimize the Internal Secrets collection for exact lookup by ID
+db.getCollection("jwt2Secrets").createIndex(
+  { "_id": 1 },
+  { name: "idx_internal_kid_unique" }
+);
+
+// 2. Optimize Third-Party Certs using a Compound Index
+// This handles the exact query shape: findOne({ kid: incomingKid, active: true })
+db.getCollection("trustedCerts").createIndex(
+  { "kid": 1, "active": 1 },
+  { name: "idx_partner_kid_active" }
+);
+
+// 3. Optimize Ledger lookups for the activated token flow
+// This handles: findOne({ billingId: binaryTokenId })
+db.getCollection("billing").createIndex(
+  { "billingId": 1 },
+  { name: "idx_billing_token_id_unique", unique: true }
+);
