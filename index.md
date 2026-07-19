@@ -18,4 +18,4 @@ Welcome to **Sail**, a privacy-focused internet access tool designed to bypass r
 
 ## 🚀 Quick Setup
 
-- **[How to Connect Your Devices](CONNECTING.md)**
+- **[How to Connect Your Devices](./doc/CONNECTING.md)**
