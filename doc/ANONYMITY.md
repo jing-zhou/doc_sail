@@ -53,7 +53,7 @@ Because user privacy is our first priority, the architectural separation between
  • Precise Bytes Transported    • Device / Hardware IDs            • No Identity Linkage in Proxy DB
 ```
 
-- **Nameless Transaction Ledgers:** The database rows are completely decoupled from human parameters. The table logs that a specific string of characters (the Temporary Token ID) initiated a connection at point A, disconnected at point B, and transferred a specific volume of packets. There are no fields connecting these timelines to a real name, email account, or physical user identity.
+- **Nameless Transaction Ledgers:** The database rows are completely decoupled from human parameters. The table logs that a specific string of characters (the Temporary Token ID) initiated a connection at time A, disconnected at time B, and transferred a specific volume of packets. There are no fields connecting these timelines to a real name, email account, or physical user identity.
 - **No Inbound Connection Logging:** While the server tracks detailed duration and byte counts to calculate voucher balances, it does not log or store your home internet service provider's inbound IP address in these persistent database ledger rows.
 - **Absolute Financial Decoupling:** Because all commercial transaction compliance, automated tax accounting, and global payment reconciliation are managed outside our core infrastructure via our US Merchant of Record (**FastSpring**), a court order or civil subpoena demanding Sail's database logs will yield zero financial paths or real-world banking trails.
 
@@ -69,7 +69,7 @@ However, because of our zero-knowledge structural design, the only information t
 
 While historical connection rows are stored securely on an independent, encrypted disk volume to validate accounting integrity, Sail enforces a rolling data expiration cycle to minimize potential threat surfaces:
 
-- **Active Voucher Tokens:** Detailed accounting proofs are held sequentially for as long as the token token lifecycle has a remaining byte budget or active chronological expiration period.
+- **Active Voucher Tokens:** Detailed accounting proofs are held sequentially for as long as the token lifecycle has a remaining byte budget or active chronological expiration period.
 - **Expired Voucher Tokens:** Once a JWT RSA token runs completely out of gigabytes or crosses its terminal expiration date, the associated database ledger entries are retained for a standard compliance window of **180 days** solely for structural network performance reviews and business capacity balancing.
 - **Automated Purging:** After the 180-day audit window wraps up, a systematic cron loop executes to securely wipe the historical token connection entries off the database volume, ensuring that old usage footprint matrices disappear completely over time.
 

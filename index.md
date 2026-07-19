@@ -11,6 +11,8 @@ Welcome to **Sail**, a privacy-focused internet access tool designed to bypass r
 3.  **[Connection Methods](./doc/CONNECTION.md)**: Comparing anonymous and managed tokens.
 4.  **[Web Disguise Layer](./doc/WEB_DISGUISE.md)**: Hiding traffic via HTTPS Port 443.
 5.  **[Firewall Defenses](./doc/ANTI_TRACKIND.md)**: DPI and firewall circumvention techniques.
+6.  **[Identity Protection vs. Standard VPNs](./doc/IDENTITY_PROTECTION.md)** — Learn why data absence beats marketing promises.
+7.  **[Target Audience Use Cases](./doc/TARGET_AUDIENCE.md)** — Explore how Sail protects crypto traders, journalists, and high-privacy environments.
 
 ---
 
