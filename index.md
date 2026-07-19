@@ -17,9 +17,21 @@ This index helps you navigate the comprehensive documentation for the Enhanced T
 
 ---
 
+## Anonymity
+
+- An user can always choose to be 100% anonymous to the VPN server
+
+## Distributed server pool
+
+- An user choose/access various server nodes with the same token/credential
+
+## Proprietary protocol
+
+- Proprietary protocol has been develop to by pass internet censorship
+
 ## 🎭 Core Concept: Dual-Nature Disguise
 
-**This server has two faces:**
+**The server has two faces:**
 
 ### Face 1: HTTPS Web Server (Public) 🌐
 
