@@ -16,10 +16,10 @@ To accommodate different types of users while maintaining excellent performance 
 
 ### 🔴 Cons
 
-- **Cash-Like Risk & Total User Responsibility:** Treat this token exactly like physical cash. Once you receive the token, it is entirely under your responsibility.
+- **Cash-Like Risk & Total User Responsibility:** Treat this token exactly like physical cash. Once you receive the token string, its security is entirely your responsibility.
 - **Completely Unrecoverable & Untrackable:** Because the service does not track the holder or log user assignments, there is no way to monitor where a token went or recover it if it is deleted.
-- **Impossible to Prove Ownership:** If you lose your token, you cannot prove ownership, as there are no registered accounts or matching logs to verify you bought it.
-- **Strictly Non-Refundable:** Due to the zero-knowledge nature of the sy
+- **Impossible to Prove Ownership:** If you lose your token string, you cannot prove ownership to customer support, as there are no registered accounts or matching logs to verify you bought it.
+- **Strictly Non-Refundable:** Due to the zero-knowledge nature of the system, transaction histories cannot be cross-referenced to issue refunds.
 
 ## 🔑 Method 2: JWT SHA256 (Account-Managed Mode)
 

@@ -13,6 +13,8 @@ Welcome to **Sail**, a privacy-focused internet access tool designed to bypass r
 5.  **[Firewall Defenses](./doc/ANTI_TRACKIND.md)**: DPI and firewall circumvention techniques.
 6.  **[Identity Protection vs. Standard VPNs](./doc/IDENTITY_PROTECTION.md)** — Learn why data absence beats marketing promises.
 7.  **[Target Audience Use Cases](./doc/TARGET_AUDIENCE.md)** — Explore how Sail protects crypto traders, journalists, and high-privacy environments.
+8.  **[Frequently Asked Questions](./doc/FAQ.md)** — Review critical token backup guides and general usage troubleshooting steps.
+9.  **[Glossary of Terms](./doc/GLOSSARY.md)** — Check quick, non-technical explanations of all structural service components.
 
 ---
 
