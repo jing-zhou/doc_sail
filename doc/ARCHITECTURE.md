@@ -16,7 +16,7 @@ To understand how Sail protects your privacy, it helps to look at the two main c
                     │
                     ▼
 ┌────────────────────────────────────────┐
-│ ⛵ Remote Proxy Server (Port 443)       │
+│ ⛵ Remote Proxy Server (Port 443)      │
 │   • Zero-Knowledge / RAM Verification  │
 │   • Fetches Requested Target Web Assets│
 └───────────────────┬────────────────────┘
