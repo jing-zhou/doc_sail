@@ -3,7 +3,26 @@
 To understand how Sail protects your privacy, it helps to look at the two main components that work together: the **Local Client App** installed on your device, and the **Remote Proxy Server** hosted on the internet.
 
 ```text
-[ Device ] ─► [ Local Client ] ──(Troad Tunnel) ─► [ Remote Proxy ] ─► [ Internet ]
+          [ Device Apps/Traffic ]
+                    │
+                    ▼
+┌────────────────────────────────────────┐
+│ 🛡️ Local Client App                    │
+│   • Android: Native OS VPN Interface   │
+│   • Desktop: SOCKS5 & HTTP Interfaces  │
+└───────────────────┬────────────────────┘
+                    │
+        (🔒 Encrypted Troad Tunnel)
+                    │
+                    ▼
+┌────────────────────────────────────────┐
+│ ⛵ Remote Proxy Server (Port 443)       │
+│   • Zero-Knowledge / RAM Verification  │
+│   • Fetches Requested Target Web Assets│
+└───────────────────┬────────────────────┘
+                    │
+                    ▼
+        [ Destination Website ]
 ```
 
 ## 1. The Local Client (On Your Device)
