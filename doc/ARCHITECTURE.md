@@ -2,11 +2,11 @@
 
 To understand how Sail protects your privacy, it helps to look at the two main components that work together: the **Local Client App** installed on your device, and the **Remote Proxy Server** hosted on the internet.
 
-[ Your Device ] [ The Internet ]
-┌──────────────────────────────┐ ┌─────────────────┐
-│ 🌐 Apps / Browser Traffic │ │ ││ │ │ │ Target Website ││ ▼ │ │ (e.g., Bitcoin ││ 🛡️ Local Client App │ 🔒 Encrypted Troad │ Exchange) ││ (Android VPN / Desktop SOCKS│ ───────────────────────────► │ ▲ ││ & HTTP System Proxies) │ Tunnel via Port 443 │ │ │└──────────────────────────────┘ │ ⛵ Sail Proxy ││ Server │└────────┼────────┘│(Zero Database /Anonymous JWT RSAVerification)
+```text
+[ Device ] ──► [ Local Client ] ──(Troad Tunnel)──► [ Remote Proxy ] ──► [ Internet ]
+```
 
-## 1. The Local Client App (On Your Device)
+## 1. The Local Client (On Your Device)
 
 The client app acts as a secure local gateway on your computer or phone. It intercepts your device’s outbound internet traffic and bundles it into the encrypted **Troad** protocol before sending it safely to the internet.
 
@@ -14,7 +14,7 @@ Depending on your operating system, the client integrates directly at the system
 
 - **🤖 On Android:** The app creates a native **VPN Interface** at the Android OS level. Once activated, the Android operating system automatically routes all outbound traffic from your web browsers, crypto wallets, and apps directly through the Sail client.
 - **💻 On Desktop (Windows, Mac, Linux):** The client provides two flexible integration points at the operating system level:
-  - A **SOCKS5 Proxy Interface** for handling raw, high-speed network connections and specialized application traffic.
+  - A **SOCKS5 Proxy Interface** for handling raw, high-speed network connections and specialized application traffic (TCP, UDP Relay).
   - An **HTTP/HTTPS Proxy Interface** for seamless, universal compatibility with standard desktop web browsers and internet applications.
 
 ## 2. The Remote Proxy Server (On the Internet)

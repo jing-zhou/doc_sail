@@ -1,17 +1,19 @@
 # ⛵ Sail Proxy Service: User Manual
 
-Welcome to **Sail**, a secure privacy service engineered to provide unrestricted, unblockable internet access. Sail runs on our custom-tailored **Troad** protocol—a proprietary, standalone proxy protocol built to handle high-volume connections smoothly while keeping user privacy as our absolute first priority.
-
-_Note: The Troad protocol is separate from, and entirely incompatible with, the standard Trojan proxy protocol._
+Welcome to **Sail**, a privacy-focused internet access tool designed to bypass restrictions. It utilizes the custom **Troad** protocol for high-volume, private connectivity, which is incompatible with standard Trojan proxies.
 
 ---
 
-## 📖 Table of Contents
+## 📖 Documentation Index
 
-1. [System Architecture (How it Works)](./doc/ARCHITECTURE.md)
-2. [Core Priority: Absolute Anonymity](./doc/ANONYMITY.md)
-3. [Choosing Your Connection Method](./doc/CONNECTION.md)
-4. [The Web Disguise Layer](./doc/WEB_DISGUISE.md)
-5. [Anti-Tracking Defenses](./doc/ANTI_TRACKIND.md)
+1.  **[System Architecture](./doc/ARCHITECTURE.md)**: Local client and remote server interaction.
+2.  **[Absolute Anonymity](./doc/ANONYMITY.md)**: Zero-knowledge framework via JWT RSA tokens.
+3.  **[Connection Methods](./doc/CONNECTION.md)**: Comparing anonymous and managed tokens.
+4.  **[Web Disguise Layer](./doc/WEB_DISGUISE.md)**: Hiding traffic via HTTPS Port 443.
+5.  **[Firewall Defenses](./doc/ANTI_TRACKIND.md)**: DPI and firewall circumvention techniques.
 
 ---
+
+## 🚀 Quick Setup
+
+- **[How to Connect Your Devices](CONNECTING.md)**
